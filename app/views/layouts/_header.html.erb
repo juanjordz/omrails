@@ -10,7 +10,8 @@
 			    </a>
 			     
 			    <!-- Be sure to leave the brand out there if you want it shown -->
-			    <a class="brand" href="#">V  e  t  a</a>
+			    
+			    <%= link_to "V  e  t  a", root_path, :class => "brand" %>
 			     
 			    <!-- Everything you want hidden at 940px or less, place within here -->
 			    <div class="nav-collapse collapse">
@@ -19,14 +20,16 @@
 						<li><%= link_to  "About", about_path %></li>
 			    	</ul>
 			    	<ul class="nav pull-right">
-						<li><%= link_to  "Login", "#" %> </li>
+			    		<% if user_signed_in? %>
+			    		Welcome $user.name
+
+			    		<li><%= link_to  "Edit profile", edit_user_registration_path%> </li>
+			    		<li><%= link_to  "Logout", destroy_user_session_path, :method => 'delete'%> </li>
+			    		<% else %>
+						<li><%= link_to  "Login", new_user_session_path %> </li>
+						<% end %>
 			    	</ul>
-			    				    	<ul class="nav pull-right">
-						<li><%= link_to  "Login", "#" %> </li>
-			    	</ul>
-			    				    	<ul class="nav pull-right">
-						<li><%= link_to  "Login", "#" %> </li>
-			    	</ul>
+
 			    <!-- .nav, .navbar-search, .navbar-form, etc -->
 			    </div>
 		    </div>
