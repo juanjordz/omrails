@@ -1,8 +1,9 @@
 class PinsController < ApplicationController
   # GET /pins
-  # GET /pins.json
+
+  before_filter :authenticate_user!, :except => :index
   def index
-    @pins = Pin.all
+    @pins = current_user.pin.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,8 +25,7 @@ class PinsController < ApplicationController
   # GET /pins/new
   # GET /pins/new.json
   def new
-    @pin = Pin.new
-
+    @pin = current_user.pin.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @pin }
@@ -34,14 +34,13 @@ class PinsController < ApplicationController
 
   # GET /pins/1/edit
   def edit
-    @pin = Pin.find(params[:id])
+    @pin = current_user.pin.find(params[:id])
   end
 
   # POST /pins
   # POST /pins.json
   def create
-    @pin = Pin.new(params[:pin])
-
+    @pin = current_user.pin.new(params[:pin])
     respond_to do |format|
       if @pin.save
         format.html { redirect_to @pin, :notice => 'Pin was successfully created.' }
@@ -56,8 +55,7 @@ class PinsController < ApplicationController
   # PUT /pins/1
   # PUT /pins/1.json
   def update
-    @pin = Pin.find(params[:id])
-
+    @pin = current_user.pin.find(params[:id])
     respond_to do |format|
       if @pin.update_attributes(params[:pin])
         format.html { redirect_to @pin, :notice => 'Pin was successfully updated.' }
@@ -72,7 +70,7 @@ class PinsController < ApplicationController
   # DELETE /pins/1
   # DELETE /pins/1.json
   def destroy
-    @pin = Pin.find(params[:id])
+    @pin = current_user.pin.find(params[:id])
     @pin.destroy
 
     respond_to do |format|
