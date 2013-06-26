@@ -2,8 +2,9 @@
 <html>
 <head>
   <title>Omrails</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -13,8 +14,7 @@
 			<%= content_tag(:div, msg, :class => "alert alert-#{name}") %>
 		<% end %> 
 		<%= yield %>
-
-		<%= render 'layouts/footer' %>
 	</div>
+	<%= render 'layouts/footer' %>
 </body>
 </html>
