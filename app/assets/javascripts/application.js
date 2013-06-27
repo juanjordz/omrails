@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require bootstrap
 //= require jquery.sequence-min.js
 //= require sequencejs-options.sliding-horizontal-parallax.js
