@@ -1,3 +1,7 @@
+<% if user_signed_in? %>
+	<h1>You're logged in!</h1>
+<% else %>
+
 <div class="hero-unit">
 	<h1>Welcome to Veta</h1>
 	<p>
@@ -17,26 +21,28 @@
 				<h2>Built using Sequence.js</h2>
 				<p>The Responsive Slider with Advanced CSS3 Transitions</p>
 			</div>
-			<img class="sky" src="images/bg-clouds.png" alt="Blue Sky" />
-			<img class="balloon" src="images/balloon.png" alt="Balloon" />
+			<%= image_tag "bg-clouds.png", :class => 'sky'%>
+			<%= image_tag "balloon.png", :class => 'balloon'%>
 		</li>
 		<li>
 			<div class="info">
 				<h2>Creative Control</h2>
 				<p>Create unique sliders using CSS3 transitions -- no jQuery knowledge required!</p>
 			</div>
-			<img class="sky" src="images/bg-clouds.png" alt="Blue Sky" />
-			<img class="aeroplane" src="images/aeroplane.png" alt="Aeroplane" />
+			<%= image_tag "bg-clouds.png", :class => 'sky'%>
+			<%= image_tag "aeroplane.png", :class => 'aeroplane'%>
+
 		</li>
 		<li>
 			<div class="info">
 				<h2>Cutting Edge</h2>
 				<p>Supports modern browsers, old browsers (IE7+), touch devices and responsive designs</p>
 			</div>
-			<img class="sky" src="images/bg-clouds.png" alt="Blue Sky" />
-			<img class="kite" src="images/kite.png" alt="Kite" />
+			<%= image_tag "bg-clouds.png", :class => 'sky'%>
+			<%= image_tag "kite.png", :class => 'kite'%>
 		</li>
 	</ul>
 </div>
 
 
+<% end %>

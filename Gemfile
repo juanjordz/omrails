@@ -4,6 +4,7 @@ gem 'devise'
 gem 'rails', '3.2.13'
 gem 'simple_form'
 gem 'paperclip', '~> 3.0'
+gem 'aws-sdk'
 
 group :production do
 	gem 'pg'
