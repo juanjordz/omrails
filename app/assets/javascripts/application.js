@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.sequence-min.js
+//= require sequencejs-options.sliding-horizontal-parallax.js
 //= require masonry.pkgd.min.js
 
 //= require bootstrap
