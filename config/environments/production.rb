@@ -68,14 +68,7 @@ Omrails::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
 
-  #paperclip should use Amazon S3 on Heroku
-    config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV['AWS_BUCKET'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
-  }
+config.assets.precompile +=
+  Dir["#{Rails.root}/app/assets/stylesheets/site/site/*.*"].collect {|s| "site/" + File.basename(s).gsub(/.scss|.sass/, '') }
 
 end
