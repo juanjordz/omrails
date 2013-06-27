@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require sequencejs-options.sliding-horizontal-parallax.js
 //= require masonry.pkgd.min.js
 
 //= require bootstrap
+//= require sequencejs-options.sliding-horizontal-parallax.js
+
 //= require_tree .
