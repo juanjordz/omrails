@@ -1,6 +1,8 @@
 class PinsController < ApplicationController
   # GET /pins
  load_and_authorize_resource
+   before_filter :authenticate_user!, :except => :index
+
   def index
 
     respond_to do |format|
@@ -14,7 +16,6 @@ class PinsController < ApplicationController
   # GET /pins/1.json
   def show
         @pin = Pin.find(params[:id])
-   authorize! :read, @pin
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @pin }
@@ -29,7 +30,6 @@ class PinsController < ApplicationController
       format.html # new.html.erb
       format.json { render :json => @pin }
     end
-    authorize! :read, @pin
   end
 
   # GET /pins/1/edit
@@ -48,7 +48,6 @@ class PinsController < ApplicationController
         format.json { render :json => @pin.errors, :status => :unprocessable_entity }
       end
     end
-    authorize! :read, @pin
   end
 
   # PUT /pins/1
@@ -63,7 +62,6 @@ class PinsController < ApplicationController
         format.json { render :json => @pin.errors, :status => :unprocessable_entity }
       end
     end
-    authorize! :read, @pin
   end
 
   # DELETE /pins/1
@@ -75,6 +73,5 @@ class PinsController < ApplicationController
       format.html { redirect_to pins_url }
       format.json { head :no_content }
     end
-    authorize! :read, @pin
   end
 end
