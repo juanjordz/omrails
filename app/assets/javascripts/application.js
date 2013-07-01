@@ -12,10 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require masonry.pkgd.min.js
 //= require bootstrap
-//= require jquery.sequence.js
+//= require jquery.sequence-min.js
 //= require sequencejs-options.sliding-horizontal-parallax.js
-//= require sequencejs-options.modern-slide-in.js
-
+//= require masonry.pkgd.min.js
 //= require_tree .

@@ -34,7 +34,7 @@
 				    			<li><%= link_to  "Add Pins de admin", new_pin_path%> </li>
 				    		<% end %>
 			    		<% if user_signed_in? %>
-			    			<li><%= link_to  "Add +", new_pin_path%> </li>
+
 				    		<li><%= link_to  "Edit profile", edit_user_registration_path%> </li>
 				    		<li><%= link_to  "Logout", destroy_user_session_path, :method => 'delete'%> </li>
 			    		<% else %>

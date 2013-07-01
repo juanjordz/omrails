@@ -31,11 +31,11 @@ class Ability
     user ||= User.new # guest user (not logged in)
     # a signed-in user can do everything
      # an admin can do everything
-      can :admin, :all if user.role == "admin"
+      can :admin, @pins if user.role == "admin"
       # an editor can do everything to documents and reports
-      can :cosas1, :all if user.role == "usuario1"
-      can :cosas2, :all if user.role == "usuario2"
-      can :cosas3, :all if user.role == "usuario3"
+      can :cosas1, @pins if user.role == "usuario1"
+      can :cosas2, @pins if user.role == "usuario2"
+      can :cosas3, @pins if user.role == "usuario3"
     
 
   end
