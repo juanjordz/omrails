@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20130628225212) do
     t.datetime "updated_at",                             :null => false
     t.string   "name"
     t.string   "role"
-    t.integer  "roles_mask"
+
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
