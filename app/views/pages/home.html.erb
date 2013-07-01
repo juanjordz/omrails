@@ -1,5 +1,9 @@
 <% if user_signed_in? %>
-	<h1>You're logged in!</h1>
+	<% if can? :admin, @user %>
+		<h1>Welcome admin!</h1>
+	<% else %>
+		<h1>Welcome <%= current_user.name%></h1>
+	<% end %>
 <% else %>
 
 <div class="hero-unit">
@@ -22,7 +26,7 @@
 				<p>The Responsive Slider with Advanced CSS3 Transitions</p>
 			</div>
 			<%= image_tag "bg-clouds.png", :class => 'sky'%>
-			<%= image_tag "balloon.png", :class => 'balloon'%>
+			<%= image_tag "smartphones.png", :class => 'balloon'%>
 		</li>
 		<li>
 			<div class="info">

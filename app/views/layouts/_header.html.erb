@@ -21,6 +21,18 @@
 						<li><%= link_to  "Pins", pins_path %></li>
 			    	</ul>
 			    	<ul class="nav pull-right">
+				    		<% if can? :cosas1, @pin %>
+				    			<li><%= link_to  "Add Pins Usuario 1 ", new_pin_path%> </li>
+				    		<% end %>
+				    		<% if can? :cosas2, @pin %>
+				    			<li><%= link_to  "Add Pins Usuario 2 ", new_pin_path%> </li>
+				    		<% end %>
+				    		<% if can? :cosas3, @pin %>
+				    			<li><%= link_to  "Add Pins Usuario 3 ", new_pin_path%> </li>
+				    		<% end %>
+				    		<% if can? :admin, @pin %>
+				    			<li><%= link_to  "Add Pins de admin", new_pin_path%> </li>
+				    		<% end %>
 			    		<% if user_signed_in? %>
 			    			<li><%= link_to  "Add +", new_pin_path%> </li>
 				    		<li><%= link_to  "Edit profile", edit_user_registration_path%> </li>
@@ -29,6 +41,7 @@
 						<li><%= link_to  "Login", new_user_session_path %> </li>
 						<% end %>
 			    	</ul>
+
 
 			    <!-- .nav, .navbar-search, .navbar-form, etc -->
 			    </div>

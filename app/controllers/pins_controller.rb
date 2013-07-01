@@ -1,46 +1,44 @@
 class PinsController < ApplicationController
   # GET /pins
-
-  before_filter :authenticate_user!, :except => :index
+ load_and_authorize_resource
   def index
-    @pins = current_user.pin.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @pins }
     end
+    authorize! :read, @pin
   end
 
   # GET /pins/1
   # GET /pins/1.json
   def show
-    @pin = Pin.find(params[:id])
-
+        @pin = Pin.find(params[:id])
+   authorize! :read, @pin
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @pin }
     end
+    authorize! :read, @pin
   end
 
   # GET /pins/new
   # GET /pins/new.json
   def new
-    @pin = current_user.pin.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @pin }
     end
+    authorize! :read, @pin
   end
 
   # GET /pins/1/edit
   def edit
-    @pin = current_user.pin.find(params[:id])
   end
 
   # POST /pins
   # POST /pins.json
   def create
-    @pin = current_user.pin.new(params[:pin])
     respond_to do |format|
       if @pin.save
         format.html { redirect_to @pin, :notice => 'Pin was successfully created.' }
@@ -50,12 +48,12 @@ class PinsController < ApplicationController
         format.json { render :json => @pin.errors, :status => :unprocessable_entity }
       end
     end
+    authorize! :read, @pin
   end
 
   # PUT /pins/1
   # PUT /pins/1.json
   def update
-    @pin = current_user.pin.find(params[:id])
     respond_to do |format|
       if @pin.update_attributes(params[:pin])
         format.html { redirect_to @pin, :notice => 'Pin was successfully updated.' }
@@ -65,17 +63,18 @@ class PinsController < ApplicationController
         format.json { render :json => @pin.errors, :status => :unprocessable_entity }
       end
     end
+    authorize! :read, @pin
   end
 
   # DELETE /pins/1
   # DELETE /pins/1.json
   def destroy
-    @pin = current_user.pin.find(params[:id])
     @pin.destroy
 
     respond_to do |format|
       format.html { redirect_to pins_url }
       format.json { head :no_content }
     end
+    authorize! :read, @pin
   end
 end

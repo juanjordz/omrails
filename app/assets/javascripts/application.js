@@ -17,5 +17,6 @@
 //= require bootstrap
 //= require jquery.sequence.js
 //= require sequencejs-options.sliding-horizontal-parallax.js
+//= require sequencejs-options.modern-slide-in.js
 
 //= require_tree .
