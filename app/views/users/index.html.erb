@@ -1,0 +1,19 @@
+
+<div id="users">
+  <h1>Lista de usuarios</h1>
+  <table class="tablesorter">
+  	<tr>
+		<th>Nombre</th>
+		<th>Email</th>
+		<th>Empresa</th>
+		<th style="width=5%"></th>
+		<th></th>
+		<th></th>
+	</tr>
+
+    <%= render @users %>
+   </table>
+</div>
+   <%= link_to 'Nuevo usuario',  new_user_path , :class => "btn btn-large btn-primary" %>
+
+
