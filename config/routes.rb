@@ -1,12 +1,11 @@
 Omrails::Application.routes.draw do
   resources :pins
   devise_for :users
-
   resources :company
   resources :users
 
 
-
+  get 'crearusuario' => 'users#new'
   get 'nuevo' => 'company#nuevo'
   get 'about' => 'pages#about'
   post 'companies' => 'company#create'
