@@ -3,8 +3,8 @@ class PinsController < ApplicationController
 
   before_filter :authenticate_user!, :except => :index
   def index
-    @pins = current_user.pin.all
-
+    @pins = Pin.find :all, :joins => [:user], :conditions => ["users.company_id = ?",current_user.company_id] 
+    @compania = User.joins(:company).where("users.company_id = ?",current_user.company_id).select("companies.name").first
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @pins }
@@ -69,7 +69,7 @@ class PinsController < ApplicationController
 
   # DELETE /pins/1
   # DELETE /pins/1.json
-  def destroy
+  def destroy_user
     @pin = current_user.pin.find(params[:id])
     @pin.destroy
 

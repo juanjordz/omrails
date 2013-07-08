@@ -15,7 +15,6 @@
 			     
 			    <!-- Everything you want hidden at 940px or less, place within here -->
 			    <div class="nav-collapse collapse">
-			    	
 			    	<% if user_signed_in? %>
 			    		<ul class="nav pull-right">
 				    		<% if can? :dashboard, @pin %>
@@ -23,10 +22,10 @@
 				    		<% end %>
 
 				    		<% if can? :pins, @pin %>
-				    			<li><%= link_to  "Add Pins", new_pin_path%> </li>
+				    			<li><%= link_to  "Pins", pins_path%> </li>
 				    		<% end %>
 				    		<% if can? :useradmon, @pin %>
-				    			<li><%= link_to  "User Management", about_path%> </li>
+				    			<li><%= link_to  "User Management", users_path%> </li>
 				    		<% end %>
 			    		
 

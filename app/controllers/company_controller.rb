@@ -23,11 +23,14 @@ class CompanyController < ApplicationController
   # GET /pins/new.json
   def new
     @company = Company.new
+    session[:return_to] ||= request.referer
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @company }
     end
   end
+
+  
 
   # GET /pins/1/edit
   def edit
@@ -42,7 +45,7 @@ class CompanyController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to new_user_registration_path, :notice => 'Pin was successfully created.' }
+        format.html { redirect_to session[:return_to], :notice => 'Pin was successfully created.' }
         format.json { render :json => @company, :status => :created, :location => @company }
       else
         format.html { render :action => "new" }
@@ -50,6 +53,9 @@ class CompanyController < ApplicationController
       end
     end
   end
+
+  
+
 
   # PUT /pins/1
   # PUT /pins/1.json

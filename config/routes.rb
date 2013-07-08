@@ -1,12 +1,14 @@
 Omrails::Application.routes.draw do
   resources :pins
-
   devise_for :users
 
+  resources :company
+  resources :users
 
+
+
+  get 'nuevo' => 'company#nuevo'
   get 'about' => 'pages#about'
-  get 'new_company' => 'company#new'
-  get 'companies' => 'devise#new'
   post 'companies' => 'company#create'
   root :to => 'pages#home'
   # The priority is based upon order of creation:
