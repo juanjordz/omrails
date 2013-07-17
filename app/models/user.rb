@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
  
 
 
-  has_many :pin,  :dependent => :destroy
+  has_many :factura,  :dependent => :destroy
 
   belongs_to :company
   validates :company_id, :presence => true

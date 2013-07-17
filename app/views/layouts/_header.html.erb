@@ -1,53 +1,55 @@
-
+<header>
 	<div class="navbar navbar-fixed-top">
 	    <div class="navbar-inner">
 		    <div class="container">    
-			    <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-			    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span>
-			    </a>
-			     
-			    <!-- Be sure to leave the brand out there if you want it shown -->
-			    
-			    <%= link_to "V  e  t  a", root_path, :class => "brand" %>
-			     
-			    <!-- Everything you want hidden at 940px or less, place within here -->
-			    <div class="nav-collapse collapse">
-			    	
-			    	<% if user_signed_in? %>
-			    		<ul class="nav pull-right">
-				    		<% if can? :dashboard, @pin %>
-				    			<li><%= link_to  "Dashboard", new_pin_path%> </li>
-				    		<% end %>
+		    	<%= link_to image_tag("logo.png", :class => 'brand logo'), root_path %>
+			    <div class="navigation">
+    				<nav>
+					<ul class="nav topnav">
+					    <!-- Be sure to leave the brand out there if you want it shown -->
 
-				    		<% if can? :pins, @pin %>
-				    			<li><%= link_to  "Add Pins", new_pin_path%> </li>
-				    		<% end %>
-				    		<% if can? :useradmon, @pin %>
-				    			<li><%= link_to  "User Management", users_path%> </li>
-				    		<% end %>
-			    		
+					    <li class="dropdown active">
 
-				    		<li><%= link_to  "Edit profile", edit_user_registration_path%> </li>
-				    		<li><%= link_to  "Logout", destroy_user_session_path, :method => 'delete'%> </li>
-						
+					    </li> 
 
-					<% else %>
-					<ul class="nav">
-						<li><%= link_to  "Home", root_path %> </li>
-						<li><%= link_to  "About", about_path %></li>
-			    	</ul >
-			    	<ul class="nav pull-right">
-						<li><%= link_to  "Login", new_user_session_path %> </li>
-			    	</ul>
-					<% end %>
-			    	</ul>
+					    <!-- Everything you want hidden at 940px or less, place within here -->
+					    <li class="nav-collapse collapse">
+					    	
+					    	<% if user_signed_in? %>
+					    		<ul class="nav pull-right">
+						    		<% if can? :dashboard, @pin %>
+						    			<li><%= link_to  "Dashboard", facturas_path%> </li>
+						    		<% end %>
+
+						    		<% if can? :pins, @pin %>
+						    			<li><%= link_to  "Add Pins", new_pin_path%> </li>
+						    		<% end %>
+						    		<% if can? :useradmon, @pin %>
+						    			<li><%= link_to  "User Management", users_path%> </li>
+						    		<% end %>
+					    		
+
+						    		<li><%= link_to  "Edit profile", edit_user_registration_path%> </li>
+						    		<li><%= link_to  "Logout", destroy_user_session_path, :method => 'delete'%> </li>
+								
+
+							<% else %>
+							<ul class="nav">
+								<li><%= link_to  "About", about_path %></li>
+					    	</ul >
+					    	<ul class="nav pull-right">
+								<li><%= link_to  "Login", new_user_session_path %> </li>
+					    	</ul>
+							<% end %>
+					    	</ul>
+				    <!-- .nav, .navbar-search, .navbar-form, etc -->
+				    	</li>
 
 
-			    <!-- .nav, .navbar-search, .navbar-form, etc -->
+				    </ul>
+				    </nav>
 			    </div>
 		    </div>
 	    </div>
     </div>
+</header>

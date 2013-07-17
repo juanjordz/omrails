@@ -73,7 +73,7 @@ table {
   min-width: 960px;
   margin: 0 auto;
   overflow: hidden;
-  background: url(../images/bg-sky.png) repeat-x #65b7f1;
+  background: url(../images/bg-sky.png) repeat-x #FFFFFF;
   color: white;
   font-family: "Play", sans-serif;
 }

@@ -4,6 +4,6 @@
   	<%= f.input :name %>
   	<%= f.input :email %>
 	<%= f.input :company_id, collection: Company.all, prompt: "Select your company", hint: "#{link_to 'Didn\'t find your company name?', new_company_path()}"%>  	
-	<%= f.input :role %>
+	<%= f.input :role, collection: User::ROLES%>
     <%= f.button :submit, :class => "btn btn-primary"%>
 <% end %>

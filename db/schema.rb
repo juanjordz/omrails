@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705143745) do
+ActiveRecord::Schema.define(:version => 20130715222841) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -19,18 +19,32 @@ ActiveRecord::Schema.define(:version => 20130705143745) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "pins", :force => true do |t|
-    t.string   "description"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.integer  "user_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+  create_table "dashboards", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "pins", ["user_id"], :name => "index_pins_on_user_id"
+  create_table "facturas", :force => true do |t|
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "serie"
+    t.string   "folio"
+    t.string   "formaDePago"
+    t.string   "metodoDePago"
+    t.integer  "numCtaPago"
+    t.string   "lugarExpedicion"
+    t.integer  "anoAprobacion"
+    t.integer  "noCertificado"
+    t.string   "nombreEmisor"
+    t.string   "rfcEm"
+    t.string   "nombreReceptor"
+    t.string   "rfcRe"
+    t.integer  "total"
+    t.integer  "subTotal"
+    t.integer  "user_id"
+  end
+
+  add_index "facturas", ["user_id"], :name => "index_facturas_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -48,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20130705143745) do
     t.string   "name"
     t.integer  "company_id"
     t.string   "role"
+    t.string   "rfc"
   end
 
   add_index "users", ["company_id"], :name => "index_users_on_company_id"

@@ -9,11 +9,12 @@
 //
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
-//
+
 //= require jquery
-//= require jquery_ujs
 //= require bootstrap
-//= require jquery.sequence-min.js
-//= require sequencejs-options.sliding-horizontal-parallax.js
 //= require masonry.pkgd.min.js
+
+
+
+
 //= require_tree .

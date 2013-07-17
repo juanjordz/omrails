@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def index
             session[:return_to] ||= request.referer
 
-    @users = User.all
+    @users = User.find :all, :conditions => ["users.company_id = ?",current_user.company_id] 
 
     respond_to do |format|
       format.html # index.html.erb
