@@ -4,7 +4,9 @@ Omrails::Application.routes.draw do
 
   resources :facturas
 
-
+devise_for :users do
+  get 'logout' => 'devise/sessions#destroy'
+end
   resources :pins
   devise_for :users
   resources :company
