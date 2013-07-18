@@ -71,4 +71,6 @@ Omrails::Application.configure do
 config.assets.precompile +=
   Dir["#{Rails.root}/app/assets/stylesheets/site/site/*.*"].collect {|s| "site/" + File.basename(s).gsub(/.scss|.sass/, '') }
 
+  config.assets.precompile += ['static_pages.css']
+
 end
