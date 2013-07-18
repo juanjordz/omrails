@@ -68,9 +68,5 @@ Omrails::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
 
-config.assets.precompile +=
-  Dir["#{Rails.root}/app/assets/stylesheets/site/site/*.*"].collect {|s| "site/" + File.basename(s).gsub(/.scss|.sass/, '') }
-
-  config.assets.precompile += ['static_pages.css']
 
 end
