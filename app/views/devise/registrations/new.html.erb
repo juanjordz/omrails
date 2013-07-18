@@ -9,7 +9,7 @@
 
   	<%= f.input :password_confirmation%>
   	<%= f.input :company_id, collection: Company.all, prompt: "Select your company", hint: "#{link_to 'Didn\'t find your company name?', new_company_path()}"%>
-	<%= f.input :role, :as => :hidden, :input_html => { :value => "usuario" } %>
+	<%= f.input :role%>
 
   <div><%= f.submit "Sign up", :class => "btn btn-primary"%></div>
 <% end %>
