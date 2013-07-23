@@ -1,9 +1,14 @@
 <% if user_signed_in? %>
 	<% if can? :admin, @user %>
+	<center>
+	<div style="width:800px">
+		<%= image_tag "welcome.jpeg", :width => "1000px"%>
 		<h1>Welcome admin!</h1>
 	<% else %>
 		<h1>Welcome <%= current_user.name%></h1>
 	<% end %>
+	</div>
+	</center>
 <% else %>
 
 <section id="intro">

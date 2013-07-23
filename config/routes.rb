@@ -12,6 +12,8 @@ end
   resources :company
   resources :users
 
+    post 'newUser' => 'users#createUser'
+
 
   get 'crearusuario' => 'users#new'
   get 'nuevo' => 'company#nuevo'

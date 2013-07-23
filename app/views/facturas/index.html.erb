@@ -1,7 +1,10 @@
+<% facturas_array = Array.new(@facturas.size) %>
 
+<% @facturas.each_with_index {|id, index| %>
+    <% facturas_array += [id[:total]]    %>
+<% } %>
 
-
-<h1>Listing facturas</h1>
+<% facturas_array = [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]%>
 
 <script type="text/javascript">
 $(function () {
@@ -12,7 +15,7 @@ $(function () {
                 marginBottom: 25
             },
             title: {
-                text: 'Monthly Average Temperature',
+                text: 'Ventas por mes',
                 x: -20 //center
             },
             subtitle: {
@@ -45,17 +48,8 @@ $(function () {
                 borderWidth: 0
             },
             series: [{
-                name: 'Tokyo',
-                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-            }, {
-                name: 'New York',
-                data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-            }, {
-                name: 'Berlin',
-                data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-            }, {
-                name: 'London',
-                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+                name: 'Ventas por mes',
+                data: <%= facturas_array %>
             }]
         });
     });
@@ -114,11 +108,60 @@ $(function () {
     });
   });
 </script>
-<div id="container1" ></div>  
-<div id="container2" ></div>  
 
 
-<div id="facturas_charts" style="height: 400px; min-width: 600px"></div>  
+<div class="container">
+<h1>Listing facturas</h1>
+
+<center>
+<div class="row-fluid">
+    <div class="span4"></div>
+    <div class="span8">       
+    </div>
+</div>
+    <div class="row">
+            <div class="span3 bs-docs-sidebar">
+                <ul class="nav nav-list bs-docs-sidenav">
+                    <li><a class="submenu" href="#grafica1"><i class="icon-chevron-right"></i> General</a></li>
+                    <li><a class="submenu" href="#grafica2"><i class="icon-chevron-right"></i> File structure</a></li>
+                    <li><a class="submenu" href="#grafica3"><i class="icon-chevron-right"></i> What's included</a></li>
+                </ul>
+            </div>
+        <div class="span9">
+            <!-- Download
+        ================================================== -->
+            <section id="grafica1" class="doc">
+                <div class="page-header">
+                    <h3>1. General</h3>
+                </div>
+                <p>
+                    <div id="container1" ></div>  
+                </p>
+            </section>
+            <!-- File structure
+        ================================================== -->
+            <section id="grafica2" class="doc">
+                <div class="page-header">
+                    <h3>2. File structure</h3>
+                </div>
+                <p>
+                    <div id="container2" ></div>  
+                </p>
+            </section>
+            <!-- Contents
+        ================================================== -->
+            <section id="grafica3" class="doc">
+            <div class="page-header">
+                <h3>3. What's included</h3>
+            </div>
+            <p>
+                <div id="facturas_charts" style="height: 400px; min-width: 600px"></div>  
+            </p>
+            </section>
+           
+        </div>
+    </div>
+
 
 
 <table>
@@ -141,6 +184,6 @@ $(function () {
 </table>
 
 <br />
-
-
+</center>
+</div>
 <%= link_to 'New Factura', new_factura_path %>

@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => :index
 
-
-
   def index
             session[:return_to] ||= request.referer
 
@@ -41,6 +39,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def createUser
+
+  end
+
 
   
    # PUT /pins/1
@@ -57,4 +59,6 @@ class UsersController < ApplicationController
       end
     end
   end
+
+
 end
