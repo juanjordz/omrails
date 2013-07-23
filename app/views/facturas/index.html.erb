@@ -1,11 +1,9 @@
-<% facturas_array = Array.new(@facturas.size) %>
+<% facturas_array = Array.new(12,0) %>
 
-<% @facturas.each_with_index {|id, index| %>
-    <% facturas_array += [id[:total]]    %>
-<% } %>
+<% @facturas.each do |factura| %>
+    <% facturas_array[factura.fechaExpedicion.month - 1]+=factura.total    %>
 
-<% facturas_array = [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]%>
-
+<% end %>
 <script type="text/javascript">
 $(function () {
         $('#container1').highcharts({
@@ -23,12 +21,12 @@ $(function () {
                 x: -20
             },
             xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+                    'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
             },
             yAxis: {
                 title: {
-                    text: 'Temperature (°C)'
+                    text: 'Pesos Mexicanos'
                 },
                 plotLines: [{
                     value: 0,
@@ -37,7 +35,7 @@ $(function () {
                 }]
             },
             tooltip: {
-                valueSuffix: '°C'
+                valuePrefix: '$'
             },
             legend: {
                 layout: 'vertical',
@@ -122,17 +120,49 @@ $(function () {
     <div class="row">
             <div class="span3 bs-docs-sidebar">
                 <ul class="nav nav-list bs-docs-sidenav">
-                    <li><a class="submenu" href="#grafica1"><i class="icon-chevron-right"></i> General</a></li>
+                    <li><a class="submenu" href="#tabla"><i class="icon-chevron-right"></i> Tabla de facturas</a></li>
+                    <li><a class="submenu" href="#grafica1"><i class="icon-chevron-right"></i> Venta por mes</a></li>
                     <li><a class="submenu" href="#grafica2"><i class="icon-chevron-right"></i> File structure</a></li>
                     <li><a class="submenu" href="#grafica3"><i class="icon-chevron-right"></i> What's included</a></li>
                 </ul>
             </div>
         <div class="span9">
+
+
+                    <!-- Tabla de facturas
+        ================================================== -->
+            <section id="tabla" class="doc">
+                <div class="page-header">
+                    <h3>1. Tabla de facturas</h3>
+                </div>
+                <p>
+                    <div id="containerTabla" >                
+                        <table class="table">
+                          <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+
+                        <% @facturas.each do |factura| %>
+                          <tr>
+                            <td><%= factura.nombreEmisor %></td>
+                            <td><%= factura.nombreReceptor %></td>
+                            <td><%= factura.total %></td>
+                            <td><%= link_to 'Show', factura %></td>
+                            <td><%= link_to 'Edit', edit_factura_path(factura) %></td>
+                            <td><%= link_to 'Destroy', factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                          </tr>
+                        <% end %>
+                        </table>
+                    </div>  
+                </p>
+            </section>
             <!-- Download
         ================================================== -->
             <section id="grafica1" class="doc">
                 <div class="page-header">
-                    <h3>1. General</h3>
+                    <h3>1. Venta por mes</h3>
                 </div>
                 <p>
                     <div id="container1" ></div>  
@@ -164,24 +194,6 @@ $(function () {
 
 
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @facturas.each do |factura| %>
-  <tr>
-    <td><%= factura.nombreEmisor %></td>
-    <td><%= factura.nombreReceptor %></td>
-    <td><%= factura.total %></td>
-    <td><%= link_to 'Show', factura %></td>
-    <td><%= link_to 'Edit', edit_factura_path(factura) %></td>
-    <td><%= link_to 'Destroy', factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
 
 <br />
 </center>

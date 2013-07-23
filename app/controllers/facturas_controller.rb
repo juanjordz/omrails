@@ -3,7 +3,7 @@ class FacturasController < ApplicationController
 
   def index
     @facturas = Factura.find :all, :joins => [:user], :conditions => ["users.company_id = ?",current_user.company_id] 
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @facturas }

@@ -1,4 +1,28 @@
-<center><div style="width:500px"><h2>Sign in</h2>
+<!-- ====================subintro==================== -->
+<section id="subintro">
+<div class="jumbotron subhead" id="overview">
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<div class="centered">
+					<h3>Log in</h3>
+					<p>
+						Escribe el correo electrónico y contraseña que se registró.
+					</p>
+					<br/>
+					<p>
+						¿No se ha registrado? <%= link_to "Sign up", new_registration_path(resource_name) %>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+
+<center><div style="width:500px">
+
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
   
