@@ -1443,7 +1443,7 @@ img.max-img {
 
 /* padding for in-page bookmarks and fixed navbar */
 section.doc {
-  padding-top: 70px;
+ /* padding-top: 70px;*/
 }
 section > .page-header,
 section > .lead {

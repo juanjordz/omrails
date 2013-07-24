@@ -559,7 +559,7 @@ form.bs-docs-example {
     opacity: 1;
   }
   .bs-docs-sidenav.affix {
-    top: 40px;
+    top: 100px;
   }
   .bs-docs-sidenav.affix-bottom {
     position: absolute;
@@ -580,7 +580,7 @@ form.bs-docs-example {
     max-width: 970px;
   }
   .bs-docs-sidenav {
-    width: 258px;
+    width: 230px;
   }
   .bs-docs-sidenav > li > a {
     width: 230px \9; /* Override the previous IE8-9 hack */

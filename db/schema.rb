@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130723175820) do
+ActiveRecord::Schema.define(:version => 20130724221933) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20130723175820) do
     t.string   "folio"
     t.string   "formaDePago"
     t.string   "metodoDePago"
-    t.integer  "numCtaPago"
+    t.string   "numCtaPago"
     t.string   "lugarExpedicion"
     t.integer  "anoAprobacion"
     t.integer  "noCertificado"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20130723175820) do
     t.integer  "total"
     t.integer  "subTotal"
     t.integer  "user_id"
-    t.date     "fechaExpedicion"
+    t.datetime "fechaExpedicion"
   end
 
   add_index "facturas", ["user_id"], :name => "index_facturas_on_user_id"
