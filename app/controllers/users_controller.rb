@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, :except => :index
+  before_filter :authenticate_user!, :except => [:index, :createUser]
 
   def index
-            session[:return_to] ||= request.referer
-
+    session[:return_to] ||= request.referer
     @users = User.find :all, :conditions => ["users.company_id = ?",current_user.company_id] 
-
-    respond_to do |format|
+    respond_to do |format|  
       format.html # index.html.erb
       format.json { render :json => @users }
     end
@@ -40,7 +38,9 @@ class UsersController < ApplicationController
   end
 
   def createUser
-
+    respond_to do |format|
+      format.html { redirect_to about_path, :notice => 'alloomorar was successfully created.' }
+    end
   end
 
 

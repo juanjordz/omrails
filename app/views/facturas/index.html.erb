@@ -1,8 +1,15 @@
 <% facturas_array = Array.new(12,0) %>
-
+<% 
+@egresos = 0
+@ingresos = 0
+%>
 <% @facturas.each do |factura| %>
-    <% facturas_array[factura.fechaExpedicion.month - 1]+=factura.total    %>
-
+    <% if factura.nombreEmisor == @nombreEmpresa.first.name%>
+        <% facturas_array[factura.fechaExpedicion.month - 1]+=factura.total    %>
+        <% @egresos += factura.total%>
+        <% else %>
+            <% @ingresos += factura.total%>
+    <% end %>
 <% end %>
 <script type="text/javascript">
 $(function () {
@@ -62,23 +69,15 @@ $(function () {
             type: 'bar'
         },
         title: {
-            text: 'Fruit Consumption'
-        },
-        xAxis: {
-            categories: ['Apples', 'Bananas', 'Oranges']
-        },
-        yAxis: {
-            title: {
-                text: 'Fruit eaten'
-            }
+            text: 'Egresos vs. Ingresos'
         },
         series: [{
-            name: 'Jane',
-            data: [1, 0, 4]
-        }, {
-            name: 'John',
-            data: [5, 7, 3]
-        }]
+                type: 'pie',
+                data: [
+                    ['Egresos',   <%= @egresos %>],
+                    ['Ingresos', <%= @ingresos %>],
+                ]
+            }]
     });})
 </script>
 
@@ -110,6 +109,7 @@ $(function () {
 
 <div class="container">
 <h1>Listing facturas</h1>
+<h2><%= %></h2>
 
 <center>
 <div class="row-fluid">
