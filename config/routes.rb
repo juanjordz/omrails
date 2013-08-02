@@ -4,18 +4,15 @@ Omrails::Application.routes.draw do
 
   resources :facturas
 
-  devise_for :users do
-    get 'logout' => 'devise/sessions#destroy'
-  end
+
   resources :pins
-  devise_for :users
-  resources :company
-  resources :users
+  resources :empresas
+  devise_for :usuarios , :path_prefix => 'my' do
+    get "/usuarios/sign_out" => "devise/sessions#destroy", :as => :destroy_usuario_session
+  end
+  resources :usuarios
 
-    post 'newUser' => 'users#createUser'
 
-
-  get 'crearusuario' => 'users#new'
   get 'about' => 'pages#about'
   root :to => 'pages#home'
   # The priority is based upon order of creation:

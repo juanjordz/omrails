@@ -11,18 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130725224004) do
-
-  create_table "companies", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.string   "nombreFactura"
-  end
+ActiveRecord::Schema.define(:version => 20130802130259) do
 
   create_table "dashboards", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "empresas", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "nombreFactura"
+    t.string   "rfc"
   end
 
   create_table "facturas", :force => true do |t|
@@ -42,13 +43,13 @@ ActiveRecord::Schema.define(:version => 20130725224004) do
     t.string   "rfcRe"
     t.integer  "total"
     t.integer  "subTotal"
-    t.integer  "user_id"
+    t.integer  "usuario_id"
     t.datetime "fechaExpedicion"
   end
 
-  add_index "facturas", ["user_id"], :name => "index_facturas_on_user_id"
+  add_index "facturas", ["usuario_id"], :name => "index_facturas_on_user_id"
 
-  create_table "users", :force => true do |t|
+  create_table "usuarios", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
@@ -62,13 +63,13 @@ ActiveRecord::Schema.define(:version => 20130725224004) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "name"
-    t.integer  "company_id"
+    t.integer  "empresa_id"
     t.string   "role"
     t.string   "rfc"
   end
 
-  add_index "users", ["company_id"], :name => "index_users_on_company_id"
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "usuarios", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "usuarios", ["empresa_id"], :name => "index_users_on_company_id"
+  add_index "usuarios", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

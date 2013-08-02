@@ -1,0 +1,12 @@
+
+	<%= simple_form_for(@usuario, :url => usuarios_path,:html => {:class => "form-horizontal"}) do |f| %>
+	  <%= f.error_notification %>
+
+	  	<%= f.input :name %>
+	  	<%= f.input :email %>
+	  	<%= f.input :password %>
+	  	<%= f.input :rfc %>
+		<%= f.input :role, collection: Usuario::ROLES%>
+		<%= f.input :empresa_id,:as => :hidden, :input_html => { :value => current_usuario.empresa_id} %>
+	    <%= f.button :submit, :class => "btn btn-primary"%>
+	<% end %>

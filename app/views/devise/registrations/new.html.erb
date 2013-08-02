@@ -1,4 +1,5 @@
 <!-- ====================subintro==================== -->
+<%             @empresa = Empresa.find :all, :conditions => ["name = ?", session[:name]]  %> 
 <section id="subintro">
 <div class="jumbotron subhead" id="overview">
 	<div class="container">
@@ -9,7 +10,6 @@
 					<p>
 						Llena el formulario para registrarte.
 					</p>
-
 				</div>
 			</div>
 		</div>
@@ -19,16 +19,15 @@
 <center><div style="width:500px">
 
 
-<%= simple_form_for(resource, :as => resource_name, :url => newUser_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>
 
   	<%= f.input :name %>
 	<%= f.input :email %>
-  	<%= f.input :rfc %>
   	<%= f.input :password %>
   	<%= f.input :password_confirmation%>
-  	<%= f.input :company%>
-  	<%= f.input :role%>
+  	<%= f.input :empresa_id, :as =>"hidden", :input_html => {:value => @empresa.first.id}%>
+  	<%= f.input :role, :as =>"hidden", :input_html => {:value => "admin"}%>
 
 </div>
   <div><%= f.submit "Sign up", :class => "btn btn-primary"%></div>

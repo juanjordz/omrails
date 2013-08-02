@@ -1,0 +1,17 @@
+<tr >
+		<% if usuario.id != current_usuario.id%>
+			<td>
+			<%= usuario.name %>
+			</td>
+			<td>
+			<%= usuario.email %>
+			</td>
+
+			<td>
+					<%= link_to 'Edit', edit_usuario_path(usuario) %>
+			</td>
+			<td>
+				<%= link_to 'Destroy', usuario,  :confirm => 'Are you sure?'  , :method => :delete%>
+			</td>
+		<% end %>
+</tr>

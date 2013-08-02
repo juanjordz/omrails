@@ -3,8 +3,8 @@ class PinsController < ApplicationController
 
   before_filter :authenticate_user!, :except => :index
   def index
-    @pins = Pin.find :all, :joins => [:user], :conditions => ["users.company_id = ?",current_user.company_id] 
-    @compania = User.joins(:company).where("users.company_id = ?",current_user.company_id).select("companies.name").first
+    @pins = Pin.find :all, :joins => [:user], :conditions => ["users.empresa_id = ?",current_user.empresa_id] 
+    @compania = User.joins(:empresa).where("users.empresa_id = ?",current_user.empresa_id).select("companies.name").first
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @pins }

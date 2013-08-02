@@ -12,6 +12,11 @@
     <% end %>
 <% end %>
 <script type="text/javascript">
+    document.getElementById('tabla').onclick = function() {
+        alert('Hey!');
+    }
+</script>
+<script type="text/javascript">
 $(function () {
         $('#container1').highcharts({
             chart: {
@@ -119,10 +124,9 @@ $(function () {
     <div class="row">
             <div class="span3 bs-docs-sidebar">
                 <ul class="nav nav-list bs-docs-sidenav">
-                    <li><a class="submenu" href="#tabla"><i class="icon-chevron-right"></i> Tabla de facturas</a></li>
-                    <li><a class="submenu" href="#grafica1"><i class="icon-chevron-right"></i> Venta por mes</a></li>
-                    <li><a class="submenu" href="#grafica2"><i class="icon-chevron-right"></i> File structure</a></li>
-                    <li><a class="submenu" href="#grafica3"><i class="icon-chevron-right"></i> What's included</a></li>
+                    <li><a id="submenu" class="submenu" href="#tabla" ><i class="icon-chevron-right"></i> Tabla de facturas</a></li>
+                    <li><a id="submenu" class="submenu" href="#grafica1"  ><i class="icon-chevron-right"></i> Venta por mes</a></li>
+                    <li><a id="submenu" class="submenu" href="#grafica2"><i class="icon-chevron-right"></i> Egresos vs. Ingresos</a></li>
                 </ul>
             </div>
         <div class="span9">
@@ -150,7 +154,7 @@ $(function () {
                             <td><%= factura.total %></td>
                             <td><%= link_to 'Show', factura %></td>
                             <td><%= link_to 'Edit', edit_factura_path(factura) %></td>
-                            <td><%= link_to 'Destroy', factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                            <td><%= link_to 'Destroy', factura, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
                           </tr>
                         <% end %>
                         </table>
@@ -159,7 +163,7 @@ $(function () {
             </section>
             <!-- Download
         ================================================== -->
-            <section id="grafica1" class="doc">
+            <section id="grafica1" class="docs">
                 <div class="page-header">
                     <h3>1. Venta por mes</h3>
                 </div>
@@ -169,24 +173,15 @@ $(function () {
             </section>
             <!-- File structure
         ================================================== -->
-            <section id="grafica2" class="doc">
+            <section id="grafica2" class="docs">
                 <div class="page-header">
-                    <h3>2. File structure</h3>
+                    <h3>2. Egresos vs. Ingresos</h3>
                 </div>
                 <p>
                     <div id="container2" ></div>  
                 </p>
             </section>
-            <!-- Contents
-        ================================================== -->
-            <section id="grafica3" class="doc">
-            <div class="page-header">
-                <h3>3. What's included</h3>
-            </div>
-            <p>
-                <div id="facturas_charts" style="height: 400px; min-width: 600px"></div>  
-            </p>
-            </section>
+ 
            
         </div>
     </div>

@@ -2,8 +2,8 @@ class FacturasController < ApplicationController
   before_filter :authenticate_user!, :except => :index
 
   def index
-    @facturas = Factura.find :all, :joins => [:user], :conditions => ["users.company_id = ?",current_user.company_id] 
-    @nombreEmpresa = Company.find :all, :conditions => ["id = ?",current_user.company_id] 
+    @facturas = Factura.find :all, :joins => [:usuario], :conditions => ["usuarios.company_id = ?",current_usuario.empresa_id] 
+    @nombreEmpresa = Empresa.find :all, :conditions => ["id = ?",current_usuario.empresa_id] 
 
     respond_to do |format|
       format.html # index.html.erb

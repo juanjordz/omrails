@@ -3,12 +3,13 @@
 <head>
   <title>Omrails</title>
 
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tag %>
 
 
 
 	<%= stylesheet_link_tag    "application" %>
-  	<%= javascript_include_tag "application", "highcharts", "exporting"%>
+  	<%= javascript_include_tag 'jquery.min.js',
+'jquery_ujs', "rails","application", "highcharts", "exporting"%>
 
   	
 </head>

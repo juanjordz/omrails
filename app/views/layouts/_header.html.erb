@@ -15,22 +15,22 @@
 					    <!-- Everything you want hidden at 940px or less, place within here -->
 					    <li class="nav-collapse collapse">
 					    	
-					    	<% if user_signed_in? %>
+					    	<% if usuario_signed_in? %>
 					    		<ul class="nav pull-right">
-						    		<% if can? :dashboard, @pin %>
+						    		<% if can? :dashboard, @factura %>
 						    			<li><%= link_to  "Dashboard", facturas_path%> </li>
 						    		<% end %>
 
-						    		<% if can? :pins, @pin %>
+						    		<% if can? :pins, @factura %>
 						    			<li><%= link_to  "Agregar Factura", new_factura_path%> </li>
 						    		<% end %>
-						    		<% if can? :useradmon, @pin %>
-						    			<li><%= link_to  "User Management", users_path%> </li>
+						    		<% if can? :usuarioadmon, @factura %>
+						    			<li><%= link_to  "User Management", usuarios_path%> </li>
 						    		<% end %>
 					    		
 
-						    		<li><%= link_to  "Edit profile", edit_user_registration_path%> </li>
-						    		<li><%= link_to  "Log out", logout_path, :method => 'delete'%> </li>
+						    		<li><%= link_to  "Edit profile", edit_usuario_registration_path%> </li>
+						    		<li><%= link_to  "Log out", destroy_usuario_session_path, :method => 'delete'%> </li>
 								
 
 							<% else %>
@@ -38,7 +38,7 @@
 								<li><%= link_to  "About", about_path %></li>
 					    	</ul >
 					    	<ul class="nav pull-right">
-								<li><%= link_to  "Login", new_user_session_path %> </li>
+								<li><%= link_to  "Login", new_usuario_session_path %> </li>
 					    	</ul>
 							<% end %>
 					    	</ul>
