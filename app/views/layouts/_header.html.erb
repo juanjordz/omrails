@@ -21,7 +21,7 @@
 						    			<li><%= link_to  "Dashboard", facturas_path%> </li>
 						    		<% end %>
 
-						    		<% if can? :pins, @factura %>
+						    		<% if can? :facturas, @factura %>
 						    			<li><%= link_to  "Agregar Factura", new_factura_path%> </li>
 						    		<% end %>
 						    		<% if can? :usuarioadmon, @factura %>
