@@ -1,0 +1,7 @@
+<center><div style="width:500px">
+    <%  @empresaNombre = Empresa.find :all, :conditions => ["id = ?", current_usuario.empresa.id]   %>
+
+<h1>Nueva factura de ingreso</h1>
+<%= render 'formingresos' %>
+</div></center>
+<%= link_to 'Back', facturas_path %>

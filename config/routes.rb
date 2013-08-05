@@ -14,6 +14,11 @@ Omrails::Application.routes.draw do
 
 
   get 'about' => 'pages#about'
+  get 'ingresos' => 'facturas#ingresos'
+  get 'egresos' => 'facturas#egresos'
+
+  get 'subir_facturas' => 'facturas#upload'
+
   root :to => 'pages#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.

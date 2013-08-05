@@ -1,0 +1,25 @@
+
+	<%= simple_form_for(@factura, :html => {:class => "form-horizontal"}) do |f| %>
+		<%= f.error_notification %>
+			<div class="form-inputs">
+			  	<%=  f.input :serie, :label => "Serie", :as => :hidden,  :input_html => { :value => "FQUQUE" } %>
+			   	<%=  f.input :folio, :label => "Folio", :as => :hidden,  :input_html => { :value => "80424" } %>
+			   	<%=  f.input :formaDePago, :label => "Forma de pago", :as => :hidden,  :input_html => { :value => "Pago en una sola exhibición" } %>
+			  	<%=  f.input :metodoDePago, :label => "Método de pago", :as => :hidden,  :input_html => { :value => "TARJETA DE CREDITO" } %>
+			   	<%=  f.input :numCtaPago, :label => "Número de Cuenta", :as => :hidden,  :input_html => { :value => "Ultimos Cuatro Digitos : 6793" } %>
+			   	<%=  f.input :lugarExpedicion, :label => "Lugar de expedición", :as => :hidden,  :input_html => { :value => "Queretaro, Mexico" } %>
+			   	<%=  f.input :anoAprobacion, :label => "Año de aprobación", :as => :hidden,  :input_html => { :value => "2009" } %>
+			   	<%=  f.input :noCertificado, :label => "Numero de certificado", :as => :hidden,  :input_html => { :value => "203321592" } %>
+			   	<%=  f.input :nombreEmisor, :label => "Nombre del emisor" %>
+			   	<%=  f.input :rfcEm, :label => "RFC del emisor" %>
+			   	<%=  f.input :nombreReceptor, :label => "Nombre del receptor", :readonly => true,  :input_html => { :value => @empresaNombre.first.name } %>
+			   	<%=  f.input :rfcRe, :label => "RFC del receptor", :readonly => true,  :input_html => { :value => @empresaNombre.first.rfc } %>
+			   	<%=  f.input :total, :label => "total" %>
+				<%=  f.input :subTotal, :label => "subTotal" %>
+				<%=  f.input :usuario_id, :label => "Id de usuario", :as => :hidden,  :input_html => { :value => current_usuario.id } %>
+				<%=  f.input :fechaExpedicion, :label => "Fecha y hora de expedicion", :width => "10px" %>
+			</div>
+		<div class="form-actions">
+			<%= f.button :submit %>
+		</div>
+	<% end %>

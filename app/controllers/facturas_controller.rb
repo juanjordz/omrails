@@ -11,6 +11,35 @@ class FacturasController < ApplicationController
     end
   end
 
+  def ingresos
+    @factura = Factura.new
+    @nombreEmpresa = Empresa.find :all, :conditions => ["id = ?",current_usuario.empresa_id] 
+
+    respond_to do |format|
+      format.html # ingresos.html.erb
+      format.json { render json: @factura }
+    end
+  end
+
+  def egresos
+    @factura = Factura.new
+    @nombreEmpresa = Empresa.find :all, :conditions => ["id = ?",current_usuario.empresa_id] 
+
+    respond_to do |format|
+      format.html # ingresos.html.erb
+      format.json { render json: @factura }
+    end
+  end
+
+  def upload
+    @factura = Factura.new
+    @nombreEmpresa = Empresa.find :all, :conditions => ["id = ?",current_usuario.empresa_id] 
+
+    respond_to do |format|
+      format.html # ingresos.html.erb
+      format.json { render json: @factura }
+    end
+  end
   # GET /facturas/1
   # GET /facturas/1.json
   def show

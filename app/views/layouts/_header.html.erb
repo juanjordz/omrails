@@ -17,14 +17,20 @@
 					    	
 					    	<% if usuario_signed_in? %>
 					    		<ul class="nav pull-right">
-						    		<% if can? :dashboard, @factura %>
+						    		<% if can? :dashboard, @usuario %>
 						    			<li><%= link_to  "Dashboard", facturas_path%> </li>
 						    		<% end %>
 
-						    		<% if can? :facturas, @factura %>
-						    			<li><%= link_to  "Agregar Factura", new_factura_path%> </li>
+						    		<% if can? :facturas, @usuario %>
+						    			<li><%= link_to  "Ingresos", ingresos_path%> </li>
 						    		<% end %>
-						    		<% if can? :usuarioadmon, @factura %>
+						    		<% if can? :facturas, @usuario %>
+						    			<li><%= link_to  "Egresos", egresos_path%> </li>
+						    		<% end %>
+						    		<% if can? :facturas, @usuario %>
+						    			<li><%= link_to  "Subir facturas", subir_facturas_path%> </li>
+						    		<% end %>
+						    		<% if can? :usuarioadmon, @usuario %>
 						    			<li><%= link_to  "User Management", usuarios_path%> </li>
 						    		<% end %>
 					    		
