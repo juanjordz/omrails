@@ -52,7 +52,7 @@
                 </tr>
 
             </table>
-
+            <% @suma_impuestos = 0%>
             <table class="table table-striped">
 	            <tr>
 	            	<th>Cantidad</th>
@@ -72,10 +72,31 @@
 	                	<td><%= concepto.importe %></td>
 	                	<td><%= concepto.impuesto %></td>
 	                	<td><%= concepto.total %></td>
+	                	<% @suma_impuestos += 0.15 * concepto.total %>
+
 	                </tr>
 
 	            	<% end %>
-	            		                <tr>
+	            	<tr>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                	<td><b>Subtotal</b></td>
+	                	<td><%=@factura.total - @suma_impuestos%></td>
+	                </tr>
+	                <tr>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                	<td><b>Total Impuestos</b></td>
+	                	<td><%=@suma_impuestos %></td>
+	                </tr>
+
+	                <tr>
 	                	<td></td>
 	                	<td></td>
 	                	<td></td>
