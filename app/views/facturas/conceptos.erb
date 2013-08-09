@@ -1,0 +1,94 @@
+<p id="notice"><%= notice %></p>
+<center>
+<div class="row" style="width:80%;">
+        <div class="well">
+            <center>
+            <table class="table table-bordered" >
+            	<tr>
+	                <td ><b>Nombre del emisor</b></td>
+	                <td><b>RFC del emisor</b></td>
+	                <td><b>Nombre del receptor</b></td>
+	                <td><b>RFC del receptor</b></td>
+	                                	<td colspan="3"><b>Lugar de expedición</b></td>
+
+                </tr>
+                <tr>
+                    <td><%= @factura.nombre_emisor %></td>
+                    <td><%= @factura.rfc_em %></td>
+                    <td><%= @factura.nombre_receptor %></td>
+                    <td><%= @factura.rfc_re %></td>
+                                        <td colspan="3"><%= @factura.lugarExpedicion %></td>
+
+                </tr>
+
+                <tr>
+                	<td><b>Serie</b></td>
+                	<td><b>Folio</b></td>
+                	<td><b>Forma de pago</b></td>
+                	<td><b>Método de pago</b></td>
+                	<td><b>Número de Cuenta del pago</b></td>
+                	<td><b>Año de aprobación</b></td>
+                	<td><b>Número de certificado</b></td>
+
+                </tr>
+                <tr>
+                    <td><%= @factura.serie %></td>
+                    <td><%= @factura.folio %></td>
+                    <td><%= @factura.formaDePago %></td>
+                    <td><%= @factura.metodoDePago %></td>
+                    <td><%= @factura.numCtaPago %></td>
+                    <td><%= @factura.anoAprobacion %></td>
+                    <td><%= @factura.noCertificado %></td>
+
+                </tr>
+                <tr>
+                	<td></td>
+                	<td></td>
+                	<td></td>
+                	<td></td>
+                	<td></td>
+                	<td><b>¿XML Valido?</b></td>
+                	<td><input type="checkbox" checked="true" disabled="disabled" /></td>
+                </tr>
+
+            </table>
+
+            <table class="table table-striped">
+	            <tr>
+	            	<th>Cantidad</th>
+	            	<th>Producto</th>
+	            	<th>Unidad</th>
+	            	<th>Precio Unitario</th>
+	            	<th>Importe</th>
+	            	<th>Impuesto</th>
+	            	<th>Total</th>
+	            </tr>
+	                <% @conceptos.each do |concepto| %>
+	               	<tr>
+	                	<td><%= concepto.cantidad %></td>
+	                	<td><%= concepto.producto %></td>
+	                	<td><%= concepto.unidad %></td>
+	                	<td><%= concepto.precio_unitario %></td>
+	                	<td><%= concepto.importe %></td>
+	                	<td><%= concepto.impuesto %></td>
+	                	<td><%= concepto.total %></td>
+	                </tr>
+
+	            	<% end %>
+	            		                <tr>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                	<td><b>Total</b></td>
+	                	<td><%=@factura.total%></td>
+	                </tr>
+            </table>
+
+	<%= link_to 'Back', :back %>
+        </center>
+        </div>
+</div>
+</center>
+

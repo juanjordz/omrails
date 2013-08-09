@@ -7,6 +7,7 @@ gem 'paperclip', '~> 3.0'
 gem 'aws-sdk'
 gem 'cancan'
 gem 'role_model'
+gem 'aws-sdk'
 
 group :production do
 	gem 'pg'

@@ -1,7 +1,33 @@
 <center><div style="width:500px">
-    <%  @empresaNombre = Empresa.find :all, :conditions => ["id = ?", current_usuario.empresa.id]   %>
+    <%  @empresaNombre = Empresa.find :all, :conditions => ["id = ?", current_usuario.empresa.id]   
+    @suma = 0%>
 
-<h1>Nueva factura de egreso</h1>
-<%= render 'formegresos' %>
-</div></center>
+<h1>Tabla de facturas de egresos</h1>
+ <div id="containerTabla" >                
+                        <table class="table">
+                          <tr>
+                            <th>Nombre de emisor</th>
+                            <th>Total</th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+
+                        <% @facturas.each do |factura| %>
+                          <tr>
+
+                            <td><%= factura.nombre_emisor %></td>
+                            <td><%= factura.total %></td>
+                            <% @suma += factura.total %>
+                            <td><%= link_to 'Show', conceptos_path(factura) %></td>
+                            <td><%= link_to 'Destroy', factura, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+                          </tr>
+                        <% end %>
+
+                        <tr>
+                        	<td><b>Total</b></td>
+                        	<td><%= @suma %></td>
+
+                        </tr>
+                        </table>
+                    </div>  </div></center>
 <%= link_to 'Back', facturas_path %>

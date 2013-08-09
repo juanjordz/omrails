@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130802130259) do
+ActiveRecord::Schema.define(:version => 20130809063659) do
+
+  create_table "conceptos", :force => true do |t|
+    t.integer  "factura_id"
+    t.integer  "cantidad"
+    t.string   "producto"
+    t.string   "unidad"
+    t.integer  "precio_unitario"
+    t.integer  "importe"
+    t.integer  "impuesto"
+    t.integer  "total"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "dashboards", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -37,10 +50,10 @@ ActiveRecord::Schema.define(:version => 20130802130259) do
     t.string   "lugarExpedicion"
     t.integer  "anoAprobacion"
     t.integer  "noCertificado"
-    t.string   "nombreEmisor"
-    t.string   "rfcEm"
-    t.string   "nombreReceptor"
-    t.string   "rfcRe"
+    t.string   "nombre_emisor"
+    t.string   "rfc_em"
+    t.string   "nombre_receptor"
+    t.string   "rfc_re"
     t.integer  "total"
     t.integer  "subTotal"
     t.integer  "usuario_id"

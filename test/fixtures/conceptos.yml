@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  clave_facturas: 1
+  cantidad: 1
+  producto: MyString
+  unidad: MyString
+  precio_unitario: 1
+  importe: 1
+  impuesto: 1
+  total: 1
+
+two:
+  clave_facturas: 1
+  cantidad: 1
+  producto: MyString
+  unidad: MyString
+  precio_unitario: 1
+  importe: 1
+  impuesto: 1
+  total: 1

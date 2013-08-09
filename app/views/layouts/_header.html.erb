@@ -18,8 +18,9 @@
 					    	<% if usuario_signed_in? %>
 					    		<ul class="nav pull-right">
 						    		<% if can? :dashboard, @usuario %>
-						    			<li><%= link_to  "Dashboard", facturas_path%> </li>
+						    			<li><%= link_to  "Dashboard", dashboards_path%> </li>
 						    		<% end %>
+
 
 						    		<% if can? :facturas, @usuario %>
 						    			<li><%= link_to  "Ingresos", ingresos_path%> </li>

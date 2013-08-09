@@ -12,6 +12,8 @@
 
 //= require jquery
 //= require bootstrap
+//= require jtable.js
+
 //= require masonry.pkgd.min.js
 
 

@@ -1,5 +1,4 @@
 Omrails::Application.routes.draw do
-  resources :dashboards
 
 
   resources :facturas
@@ -16,6 +15,9 @@ Omrails::Application.routes.draw do
   get 'about' => 'pages#about'
   get 'ingresos' => 'facturas#ingresos'
   get 'egresos' => 'facturas#egresos'
+  get 'dashboards' => 'facturas#dashboards'
+  get '/conceptos/:id', :to => 'facturas#conceptos', :as => 'conceptos'
+
 
   get 'subir_facturas' => 'facturas#upload'
 

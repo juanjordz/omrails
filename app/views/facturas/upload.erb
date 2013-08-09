@@ -3,5 +3,19 @@
 
 <h1>Subir factura</h1>
 	<h3>Zona en construcción</h3>
+
+	<div id="widgets"></div>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $("#widgets").jTable({
+      columns: [
+        {heading: "Column 1", attribute: "attribute_1"},
+        {heading: "Column 2", attribute: "attribute_2"},
+        {heading: "Column 3", attribute: "attribute_3"}
+      ]
+    })
+  })
+</script>
 </div></center>
 <%= link_to 'Back', facturas_path %>

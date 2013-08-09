@@ -2,9 +2,12 @@
 <% 
 @egresos = 0
 @ingresos = 0
+    @facturas = Factura.find :all, :joins => [:usuario], :conditions => ["usuarios.empresa_id = ?",current_usuario.empresa_id] 
+    @nombreEmpresa = Empresa.find :all, :conditions => ["id = ?",current_usuario.empresa_id] 
+
 %>
 <% @facturas.each do |factura| %>
-    <% if factura.nombreEmisor == @nombreEmpresa.first.name%>
+    <% if factura.nombre_emisor == @nombreEmpresa.first.name%>
         <% facturas_array[factura.fechaExpedicion.month - 1]+=factura.total    %>
         <% @egresos += factura.total%>
         <% else %>
@@ -129,8 +132,6 @@ $(function () {
                 </ul>
             </div>
         <div class="span9">
-
-
 
             <!-- Download
         ================================================== -->

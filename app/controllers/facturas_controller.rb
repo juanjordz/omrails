@@ -12,8 +12,9 @@ class FacturasController < ApplicationController
   end
 
   def ingresos
-    @factura = Factura.new
     @nombreEmpresa = Empresa.find :all, :conditions => ["id = ?",current_usuario.empresa_id] 
+    @facturas = Factura.find :all, :joins => [:usuario], :conditions => ["usuarios.empresa_id = ? AND nombre_emisor = ?",current_usuario.empresa_id, @nombreEmpresa.first.name] 
+  
 
     respond_to do |format|
       format.html # ingresos.html.erb
@@ -22,8 +23,8 @@ class FacturasController < ApplicationController
   end
 
   def egresos
-    @factura = Factura.new
-    @nombreEmpresa = Empresa.find :all, :conditions => ["id = ?",current_usuario.empresa_id] 
+   @nombreEmpresa = Empresa.find :all, :conditions => ["id = ?",current_usuario.empresa_id] 
+    @facturas = Factura.find :all, :joins => [:usuario], :conditions => ["usuarios.empresa_id = ? AND nombre_receptor = ?",current_usuario.empresa_id, @nombreEmpresa.first.name] 
 
     respond_to do |format|
       format.html # ingresos.html.erb
@@ -40,6 +41,19 @@ class FacturasController < ApplicationController
       format.json { render json: @factura }
     end
   end
+  # GET /facturas/1
+  # GET /facturas/1.json
+  def conceptos
+    @factura = Factura.find(params[:id])
+    @conceptos = Concepto.find :all, :joins => [:factura], :conditions => ["conceptos.factura_id = ?",params[:id]] 
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @factura }
+    end
+  end
+
+
   # GET /facturas/1
   # GET /facturas/1.json
   def show
