@@ -77,6 +77,16 @@
 	                </tr>
 
 	            	<% end %>
+
+	            	<tr>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                	<td></td>
+	                </tr>
 	            	<tr>
 	                	<td></td>
 	                	<td></td>
@@ -84,7 +94,7 @@
 	                	<td></td>
 	                	<td></td>
 	                	<td><b>Subtotal</b></td>
-	                	<td><%=@factura.total - @suma_impuestos%></td>
+	                	<td>$<%=@factura.total - @suma_impuestos%></td>
 	                </tr>
 	                <tr>
 	                	<td></td>
@@ -93,7 +103,7 @@
 	                	<td></td>
 	                	<td></td>
 	                	<td><b>Total Impuestos</b></td>
-	                	<td><%=@suma_impuestos %></td>
+	                	<td>$<%=@suma_impuestos %></td>
 	                </tr>
 
 	                <tr>
@@ -103,7 +113,7 @@
 	                	<td></td>
 	                	<td></td>
 	                	<td><b>Total</b></td>
-	                	<td><%=@factura.total%></td>
+	                	<td>$<%=@factura.total%></td>
 	                </tr>
             </table>
 
