@@ -76,6 +76,20 @@ class FacturasController < ApplicationController
     end
   end
 
+    # GET /facturas/new
+  # GET /facturas/new.json
+  def new_ingresos
+    @factura = Factura.new
+    @factura.concepto.build
+    
+    @nombreEmpresa = Empresa.find :all, :conditions => ["id = ?",current_usuario.empresa_id] 
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @factura }
+    end
+  end
+
   # GET /facturas/1/edit
   def edit
     @factura = Factura.find(params[:id])
@@ -122,6 +136,15 @@ class FacturasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to facturas_url }
       format.json { head :no_content }
+    end
+  end
+
+  def upload
+    @factura = Factura.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @factura }
     end
   end
 end

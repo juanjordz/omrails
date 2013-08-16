@@ -1,0 +1,19 @@
+<script>
+	function displayResult()
+	{
+		var table=document.getElementById("myTable");
+		var row=table.insertRow(0);
+		var cell1=row.insertCell(0);
+		var cell2=row.insertCell(1);
+		cell1.innerHTML="New";
+		cell2.innerHTML="New";
+	}
+</script>
+<center><div>
+
+<h1>Nueva factura</h1>
+<%= render 'formingresos' %>
+
+
+</div></center>
+<%= link_to 'Back', facturas_path %>

@@ -14,7 +14,9 @@ Omrails::Application.routes.draw do
 
   get 'about' => 'pages#about'
   get 'ingresos' => 'facturas#ingresos'
+  get 'new_ingreso' => 'facturas#new_ingresos'
   get 'egresos' => 'facturas#egresos'
+  post 'upload' => 'facturas#upload'
   get 'dashboards' => 'facturas#dashboards'
   get '/conceptos/:id', :to => 'facturas#conceptos', :as => 'conceptos'
 

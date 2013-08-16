@@ -1,7 +1,9 @@
+require "paperclip"
+
 class Factura < ActiveRecord::Base
   # attr_accessible :title, :body
 
-    attr_accessible :serie,:folio,:formaDePago,:metodoDePago,:numCtaPago,:lugarExpedicion,:anoAprobacion,:noCertificado,:nombre_emisor,:rfc_em,:nombre_receptor,:rfc_re,:total,:subTotal, :fechaExpedicion, :usuario_id
+    attr_accessible :serie,:folio,:formaDePago,:metodoDePago,:numCtaPago,:lugarExpedicion,:anoAprobacion,:noCertificado,:nombre_emisor,:rfc_em,:nombre_receptor,:rfc_re,:total,:subTotal, :fechaExpedicion, :usuario_id,  :concepto_attributes, :archivo
 
   validates :serie, :presence => true
   validates :nombre_receptor, :presence => true
@@ -19,7 +21,7 @@ class Factura < ActiveRecord::Base
   validates :subTotal, :presence => true
   validates :fechaExpedicion, :presence => true
 
-
+ has_attached_file :archivo
 
 
 
@@ -29,4 +31,5 @@ class Factura < ActiveRecord::Base
 
   belongs_to :usuario
   has_many :concepto
+  accepts_nested_attributes_for :concepto
 end

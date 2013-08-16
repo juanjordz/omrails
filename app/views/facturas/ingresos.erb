@@ -1,4 +1,4 @@
-<center><div style="width:500px">
+<center><div>
     <%  @empresaNombre = Empresa.find :all, :conditions => ["id = ?", current_usuario.empresa.id]   
      @suma = 0%>
 
@@ -31,6 +31,8 @@
                         </table>
                     </div>  
                 </p>
+                <%= link_to 'Nueva Factura', new_ingreso_path %>
+
             </section>
 </div></center>
 <%= link_to 'Back', facturas_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130809063659) do
+ActiveRecord::Schema.define(:version => 20130816180244) do
 
   create_table "conceptos", :force => true do |t|
     t.integer  "factura_id"
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(:version => 20130809063659) do
   end
 
   create_table "facturas", :force => true do |t|
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.string   "serie"
     t.string   "folio"
     t.string   "formaDePago"
@@ -58,6 +58,14 @@ ActiveRecord::Schema.define(:version => 20130809063659) do
     t.integer  "subTotal"
     t.integer  "usuario_id"
     t.datetime "fechaExpedicion"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "archivo_file_name"
+    t.string   "archivo_content_type"
+    t.integer  "archivo_file_size"
+    t.datetime "archivo_updated_at"
   end
 
   add_index "facturas", ["usuario_id"], :name => "index_facturas_on_user_id"
