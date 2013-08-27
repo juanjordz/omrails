@@ -1696,6 +1696,10 @@ section#subintro{
 		margin-top:30px;
 		margin-bottom:0px;
 	}
+	#img_welcome{
+		width: 80px;
+
+	}
 
 	section#intro{
 		max-width: 100%;
@@ -1810,6 +1814,10 @@ section#subintro{
 		font-size:14px;
 	}
 
+	#img_welcome{
+		width: 4px;
+
+	}
 	#sequence {
 		height: 250px;
 	}	

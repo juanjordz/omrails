@@ -2,8 +2,8 @@
 	<% if can? :admin, @user %>
 	<%  @empresaNombre = Empresa.find :all, :conditions => ["id = ?", current_usuario.empresa.id]   %>
 	<center>
-	<div style="width:800px">
-		<%= image_tag "welcome.jpeg", :width => "1000px"%>
+	<div id="img_welcome" >
+		<%= image_tag "welcome.jpeg"%>
 		<h1>Bienvenido administrador de <%=@empresaNombre.first.name %></h1>
 	<% else %>
 		<h1>Welcome <%= current_usuario.name%></h1>

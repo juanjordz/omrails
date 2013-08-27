@@ -12,8 +12,13 @@
 
 //= require jquery
 //= require bootstrap
-//= require jtable.js
-
+//= require complete
+//= require jquery-1.4.4.min.js
+//= require jquery.dataTables.min.js
+//= require jquery-ui.js
+//= require jquery.dataTables.columnFilter.js
+//= require actb.js
+//= require tablefilter.js
 //= require masonry.pkgd.min.js
 
 

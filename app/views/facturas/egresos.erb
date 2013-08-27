@@ -1,33 +1,95 @@
-<center><div style="width:500px">
+<script type="text/javascript">
+$(document).ready(function(){
+                $.datepicker.regional[""].dateFormat = 'dd/mm/yy';
+                $.datepicker.setDefaults($.datepicker.regional['']);
+     $('#example').dataTable({
+        "aoColumns": [ 
+             { "sWidth": "200px" },
+            null,
+            null,
+            null,
+            null       ]
+    } ).columnFilter({ sPlaceHolder: "head:before",
+            aoColumns: [ { type: "date-range", sRangeFormat: "Between {from} and {to} dates" },
+                     { type: "text" },
+                                     { type: "text"  },
+                                     { type: "text"  },
+                                      { type: "number-range" }
+                ]
+
+        });
+});
+
+
+
+        </script>
+
+<body>
+                         
+<center>
+<div style="width:900px">
     <%  @empresaNombre = Empresa.find :all, :conditions => ["id = ?", current_usuario.empresa.id]   
     @suma = 0%>
-
-<h1>Tabla de facturas de egresos</h1>
- <div id="containerTabla" >                
-                        <table class="table">
-                          <tr>
-                            <th>Nombre de emisor</th>
+    <div id="container">
+    <h1>Tabla de facturas de egresos</h1>
+        <div id="containerTabla" >                                      
+            <div id="demo">
+                <table id="example" class="display">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Identificador de la factura</th>
+                            <th>Proveedor</th>
+                            <th>RFC del proovedor</th>
                             <th>Total</th>
                             <th></th>
                             <th></th>
-                          </tr>
+                        </tr>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Identificador de la factura</th>
+                            <th>Proveedor</th>
+                            <th>RFC del proovedor</th>
+                            <th>Total</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                        <% @facturas.each do |factura| %>
-                          <tr>
-
+                    <% @facturas.each do |factura| %>
+                        <tr>
+                            <% faux = factura.created_at.to_s.split(" ")
+                                fecha = faux[0]
+                                fecha2 = fecha.split("-")
+                                fecha = fecha2[2]+"/"+fecha2[1]+"/"+fecha2[0]
+                             %>
+                            <td><%= fecha %></td>                          
+                            <td><%= factura.folio %></td>
                             <td><%= factura.nombre_emisor %></td>
+                            <td><%= factura.rfc_em %></td>
                             <td><%= factura.total %></td>
-                            <% @suma += factura.total %>
                             <td><%= link_to 'Show', conceptos_path(factura) %></td>
                             <td><%= link_to 'Destroy', factura, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-                          </tr>
-                        <% end %>
-
-                        <tr>
-                        	<td><b>Total</b></td>
-                        	<td><%= @suma %></td>
-
+                            <% @suma += factura.total %>
+                            
                         </tr>
-                        </table>
-                    </div>  </div></center>
+                    <% end %>
+                    
+                    </tbody>
+                    <tfoot>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Total</th>
+                        <th><%= @suma %></th>
+                        <th></th>
+                        <th></th>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>  
+</div></center>
 <%= link_to 'Back', facturas_path %>
+<br/><br/>
